@@ -55,5 +55,4 @@
 #define RESET_DELAY   9
 #define APPROX_SAMPLES  8
 
-
 #endif /* DEFINES_H_ */

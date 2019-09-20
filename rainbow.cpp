@@ -8,32 +8,21 @@
 #include "rainbow.h"
 
 //From Sophisticated Gentleman
-//topDot
-int dotSpeedMax =3;
-int dotSpeedHoldMax=7;
-int dotSpeedAccelerateMax=1;
-//const int tailLenMax=5;
-int dotSpeedHold[14] ={dotSpeedHoldMax};
-int dotSpeed[14] ={dotSpeedMax};
-int dotSpeedAccelerate[14]={dotSpeedAccelerateMax};
-int dotSpeedCurrent[14] = {0};
-int dotTail[14][5]; //[14][tailLenMax = 5]
-//end topDot
 
 //rainbowBG()
 CRGB rainbowBG_CRGB[NUM_LEDS_PS];
 //end rainbowBG()
 
 //rainbowBGCycleV()
-int currentColourV = 255;
-int cycleSpeedV = 0;
-int initialSpeedV = 4;
+static int currentColourV = 255;
+static int cycleSpeedV = 0;
+static int initialSpeedV = 4;
 CRGB rainbowBGCycleV_CRGB[255];
 //end rainbowBGCycleV()
 
 //rainbowBGCycleH()
-int cycleSpeedH = 0;
-int initialSpeedH = 0;
+static int cycleSpeedH = 0;
+static int initialSpeedH = 0;
 uint8_t currentStrip=0;
 CRGB rainbowBGCycleH_CRGB[14];
 //end rainbowBGCycleH()
@@ -42,7 +31,6 @@ CRGB rainbowBGCycleH_CRGB[14];
 CRGB rainbowBGSnake_CRGB[NUM_LEDS_PS];
 //end rainbowBGSnake()
 //End of Sophisticated Gentleman
-
 
 void rainbowBG()
 {

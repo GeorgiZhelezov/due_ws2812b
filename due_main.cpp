@@ -2,21 +2,20 @@
 
 CRGB strip[1008];
 
+uint8_t col;
+uint8_t row;
 uint8_t brightness   = 20;
-uint8_t col          = 0;
-uint8_t row          = 0;
-uint8_t command      = 3;
+uint8_t command      = 2;
 uint8_t command_last = command;
-uint8_t red_dot[14]  = { 0 };
 
-uint16_t data[NUM_STRIPS]                     = { 0 };
-uint16_t raw_data[APPROX_SAMPLES][NUM_STRIPS] = { 0 };
+uint16_t data[NUM_STRIPS];
+uint16_t raw_data[APPROX_SAMPLES][NUM_STRIPS];
 
 uint32_t colorPickerColor = CRGB::Red;
 
 void setup()
 {
-	FastLED.addLeds<WS2811_PORTD, 7>(strip, 144);
+	FastLED.addLeds<WS2811_PORTD, 7>(strip, NUM_LEDS_PS * 2);
 
 	FastLED.setBrightness(brightness);
 

@@ -54,33 +54,6 @@ void read_mux()
 		avg[raw_col] /= APPROX_SAMPLES;
 
 		data[raw_col] = map(avg[raw_col], 0, 1023, MAP_MIN, MAP_MAX);
-
-		if (red_dot[raw_col] <= data[raw_col])
-		{
-			red_dot[raw_col] = data[raw_col];
-			dotSpeed[raw_col] = dotSpeedMax;
-			dotSpeedHold[raw_col] = dotSpeedHoldMax;
-			dotSpeedCurrent[raw_col] = dotSpeedMax;
-			dotSpeedAccelerate[raw_col] = dotSpeedAccelerateMax;
-		}
-		else if (dotSpeedCurrent[raw_col] == 0)
-		{
-			red_dot[raw_col]--;
-			dotSpeedCurrent[raw_col] = dotSpeed[raw_col];
-			if (dotSpeedAccelerate[raw_col] > 0)
-				dotSpeedAccelerate[raw_col]--;
-			else
-			{
-				dotSpeed[raw_col]--;
-				dotSpeedAccelerate[raw_col] = dotSpeedAccelerateMax;
-			}
-			if (dotSpeed[raw_col] < 0)
-				dotSpeed[raw_col] = 0;
-		}
-		else if (dotSpeedHold[raw_col] > 0)
-			dotSpeedHold[raw_col]--;
-		else
-			dotSpeedCurrent[raw_col]--;
 	}
 
 	digitalWrite(PIN_CAP_RESET, HIGH);

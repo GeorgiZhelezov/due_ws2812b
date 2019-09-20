@@ -10,6 +10,8 @@
 
 void led_set()
 {
+	red_dot_calc();
+
 	for (col = 0; col < NUM_STRIPS; col++)
 	{
 		for (row = 0; row < NUM_LEDS_PS; row++)
@@ -17,13 +19,6 @@ void led_set()
 			strip[calc_pos()] = modes();
 		}
 
-		if (col % 2 == 0)
-		{
-			strip[NUM_LEDS_PS * col + red_dot[col]] = red_dot[col] != 0 ? CRGB::White : CRGB::Black;
-		}
-		else
-		{
-			strip[NUM_LEDS_PS + NUM_LEDS_PS * col - red_dot[col]] = red_dot[col] != 0 ? CRGB::White : CRGB::Black;
-		}
+		red_dot_set();
 	}
 }

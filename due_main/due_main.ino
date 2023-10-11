@@ -51,7 +51,7 @@ void setup()
 	rainbowBG();
 }
 
-void loop()
+void loop() 
 {
 	read_mux();
 
@@ -66,4 +66,3 @@ void loop()
 	Serial.println(FastLED.getFPS());
 	delay(RESET_DELAY);
 }
-

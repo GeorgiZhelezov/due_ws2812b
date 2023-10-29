@@ -60,8 +60,11 @@ void loop()
 	rainbowBGCycleH();
 
 	led_set();
+
 	// uart2_rx_bt();
+	
 	FastLED.show();
 	// Serial.println(FastLED.getFPS());
+
 	delay(RESET_DELAY);
 }

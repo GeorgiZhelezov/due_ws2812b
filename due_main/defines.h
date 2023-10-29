@@ -8,7 +8,7 @@
 #ifndef DEFINES_H_
 #define DEFINES_H_
 
-#define PIN_OUTPUT0    23
+#define PIN_OUTPUT0   23
 #define PIN_OUTPUT1   25
 #define PIN_OUTPUT2   27
 #define PIN_OUTPUT3   29
@@ -22,6 +22,9 @@
 #define PIN_ANALOG_IN3  A3
 #define PIN_ANALOG_IN4  A4
 #define PIN_ANALOG_IN5  A5
+
+#define PIN_ADC_PEAK_DETECTOR1 PIN_ANALOG_IN3
+#define PIN_ADC_PEAK_DETECTOR2 PIN_ANALOG_IN4
 
 #define PIN_MUX1_A    4
 #define PIN_MUX1_B    3
@@ -40,9 +43,11 @@
 #define MUX_ENABLE    1
 #define MUX_DISABLE   0
 
-
 #define IC_74HC_ENABLE  0
 #define IC_74HC_DISABLE 1
+
+#define PIN_74HC245_OE  49
+#define PIN_74HC245_DIR 47
 
 #define NUM_LEDS    1008
 #define NUM_STRIPS    14

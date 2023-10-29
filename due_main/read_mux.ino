@@ -29,7 +29,7 @@ void read_mux()
 		digitalWrite(PIN_MUX1_B, mux_out_addr[1]);
 		digitalWrite(PIN_MUX1_C, mux_out_addr[2]);
 
-		raw_data[APPROX_SAMPLES - 1][raw_col] = analogRead(PIN_ANALOG_IN2);
+		raw_data[APPROX_SAMPLES - 1][raw_col] = analogRead(PIN_ADC_PEAK_DETECTOR1);
 
 		if (raw_col < 6)
 		{
@@ -37,8 +37,15 @@ void read_mux()
 			digitalWrite(PIN_MUX2_B, mux_out_addr[1]);
 			digitalWrite(PIN_MUX2_C, mux_out_addr[2]);
 
-			raw_data[APPROX_SAMPLES - 1][raw_col + 8] = analogRead(PIN_ANALOG_IN3);
+			raw_data[APPROX_SAMPLES - 1][raw_col + 8] = analogRead(PIN_ADC_PEAK_DETECTOR2);
 		}
+
+		// for (uint8_t i = 0; i < sizeof(mux_out_addr); i++)
+		// {
+		// 	Serial.print(mux_out_addr[i]);
+		// 	Serial.print(" ");
+		// }
+		// Serial.println();
 	}
 
 	for (raw_row = 0; raw_row < NUM_STRIPS; raw_row++)
@@ -59,12 +66,22 @@ void read_mux()
 	digitalWrite(PIN_CAP_RESET, HIGH);
 	digitalWrite(PIN_CAP_RESET, LOW);
 
-	//DEBUG
-	//for (i = 0; i < 14; i++)
-	//{
-	//  Serial.print(approx[i]);
-	//  Serial.print(" ");
-	//}
-	//Serial.println();
-	//END DEBUG
+	//DEBUG PRINT DATA
+	// {
+	// 	char buff[128], temp[8];
+	// 	memset(buff, 0, sizeof(buff));
+	// 	memset(temp, 0, sizeof(temp));
+
+	// 	int wrote;
+	// 	for (int i = 0; i < NUM_STRIPS; i++)
+	// 	{
+	// 		wrote = snprintf(temp, sizeof(temp), "%2d ", data[i]);
+	// 		strncat(buff, temp, wrote);
+	// 		if (i == 6) { strncat(buff, "  ", 2); }
+
+	// 		memset(temp, 0, sizeof(temp));
+	// 	}
+	// 	Serial.println(buff);
+	// }
+	// END DEBUG PRINT DATA
 }

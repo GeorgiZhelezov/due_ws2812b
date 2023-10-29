@@ -1,0 +1,5 @@
+{
+    "board": "arduino:sam:arduino_due_x_dbg",
+    "sketch": "due_main/due_main.ino",
+    "port": "/dev/ttyACM0"
+}
